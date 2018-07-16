@@ -268,7 +268,7 @@ STATIC const mp_rom_map_elem_t module_unoise_globals_table[] = {
 
 STATIC MP_DEFINE_CONST_DICT(module_unoise_globals, module_unoise_globals_table);
 
-const mp_obj_module_t module_unoise = { 
+const mp_obj_module_t unoise_user_cmodule = {
     .base = { &mp_type_module },
     .globals = (mp_obj_dict_t*)&module_unoise_globals,
 };  
