@@ -9,7 +9,7 @@
 
 #define lerp(t, a, b) ((a) + (t) * ((b) - (a)))
 
-float inline
+float
 grad1(mp_int_t hash, mp_float_t x)
 {
 	mp_float_t g = (hash & 7) + 1.0f;
@@ -268,7 +268,10 @@ STATIC const mp_rom_map_elem_t module_unoise_globals_table[] = {
 
 STATIC MP_DEFINE_CONST_DICT(module_unoise_globals, module_unoise_globals_table);
 
-const mp_obj_module_t module_unoise = { 
+const mp_obj_module_t unoise_user_cmodule = {
     .base = { &mp_type_module },
     .globals = (mp_obj_dict_t*)&module_unoise_globals,
-};  
+};
+
+// Register the module to make it available in Python
+MP_REGISTER_MODULE(MP_QSTR_unoise, unoise_user_cmodule, MODULE_UNOISE_ENABLED);
